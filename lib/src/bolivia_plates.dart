@@ -1,8 +1,8 @@
 import 'dart:math';
 
 import 'package:plate_alphabet/plate_alphabet.dart';
-import 'package:plate_core/plate_core.dart';
 import 'package:flutter/widgets.dart';
+import 'package:plate_core/plate_core.dart';
 
 import 'bolivia_alphabets.dart';
 import 'bolivia_colors.dart';
@@ -39,8 +39,7 @@ import 'bolivia_regions.dart';
 /// is width-limited at about half the reference height. Labels are sized to
 /// the measured ink *width* for the same reason. `plate_core` is unchanged.
 ///
-/// **Not drawn.** The wiphala printed beside the diplomatic plate's
-/// `BOLIVIA`, the
+/// **Not drawn.** The wiphala beside the diplomatic plate's `BOLIVIA`, the
 /// six-digit control number under the department letter, and the Mercosur
 /// emblem.
 abstract final class _Layout {
@@ -121,8 +120,7 @@ List<PlateBand> _flag(PlateBox box) {
 /// `BOLIVIA` letter-spaced as stamped: thin spaces between the capitals.
 const String _bolivia = 'B\u2009O\u2009L\u2009I\u2009V\u2009I\u2009A';
 
-/// The service a PTA plate's department box declares by its fill: white for
-/// private, red for public service, yellow for government.
+/// The service a PTA plate's department box declares by its fill.
 @immutable
 class BoliviaService {
   const BoliviaService({required this.id, required this.fill, this.ink});
@@ -133,7 +131,6 @@ class BoliviaService {
   /// The letter's ink, or null for the plate's blue.
   final Color? ink;
 
-  /// Photographed: the box is the plate's own white.
   static const BoliviaService private = BoliviaService(
     id: 'priv',
     fill: BoliviaColors.white,
@@ -159,8 +156,8 @@ class BoliviaService {
   ];
 }
 
-/// The status code between a special plate's two numbers. Every one is the
-/// same design; the colours are the theme's (see `BoliviaThemes`).
+/// The status code between a special plate's two numbers; colours come from
+/// the theme.
 @immutable
 class BoliviaMission {
   const BoliviaMission({
@@ -223,9 +220,7 @@ abstract final class BoliviaPlates {
     spacing: max(0, pitch - 0.6 * 0.72 * height),
   );
 
-  /// The PTA plate, `1234ABC` under BOLIVIA, and the department letter. Older
-  /// vehicles carry three digits; the row stays centred.
-  ///
+  /// The PTA plate, `1234ABC`; three-digit numbers stay centred.
   /// Slots: the digits, the three letters, then the department.
   static PlateSpec standard({
     int digits = 4,
@@ -338,11 +333,7 @@ abstract final class BoliviaPlates {
     ],
     textGroups: <PlateTextGroup>[
       const PlateTextGroup(<int>[0], key: 'country'),
-      PlateTextGroup(
-        const <int>[1],
-        prefix: '-${mission.code}-',
-        key: 'rank',
-      ),
+      PlateTextGroup(const <int>[1], prefix: '-${mission.code}-', key: 'rank'),
     ],
   );
 

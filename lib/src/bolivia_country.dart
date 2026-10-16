@@ -2,9 +2,8 @@ import 'package:plate_core/plate_core.dart';
 
 import 'bolivia_colors.dart';
 
-/// Bolivia as a `PlateCountry`. The flag is the state flag, with the coat of
-/// arms: the PTA plate prints it, through a panel box exactly the flag's
-/// shape. The special and Mercosur plates print the plain flag as three
+/// Bolivia as a `PlateCountry`. The state flag (with coat of arms) is printed
+/// by the PTA plate's panel; the special and Mercosur plates print plain
 /// bands and set `noPanel`.
 abstract final class BoliviaCountry {
   static const PlateCountry bolivia = PlateCountry(
